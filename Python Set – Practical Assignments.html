@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Python Set – Practical Assignments</title>
+<style>
+:root{--bg:#f8fafc;--card:#fff;--tx:#0f172a;--mut:#475569;--ac:#2563eb;--ok:#059669;--warn:#d97706;--bd:#cbd5e1;--code:#0f172a;--ct:#e2e8f0;--ot:#4ade80;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1220;--card:#131c2e;--tx:#f1f5f9;--mut:#94a3b8;--ac:#60a5fa;--ok:#34d399;--warn:#fbbf24;--bd:#27344d;--code:#050a14}}
+:root[data-theme="dark"]{--bg:#0b1220;--card:#131c2e;--tx:#f1f5f9;--mut:#94a3b8;--ac:#60a5fa;--ok:#34d399;--warn:#fbbf24;--bd:#27344d;--code:#050a14}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;font-size:clamp(16px,1.6vw,22px);line-height:1.55}
+header{position:sticky;top:0;z-index:5;background:var(--card);border-bottom:3px solid var(--bd);padding:1vh 4vw;padding-top:calc(1vh + env(safe-area-inset-top,0px))}
+.row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+header h1{font-size:1.2em;margin:0;color:var(--ac);flex:1}
+nav{display:flex;gap:8px;flex-wrap:wrap;margin-top:.5vh}
+nav a{font-size:.8em;color:var(--ac);border:2px solid var(--bd);border-radius:999px;padding:.05em .7em;text-decoration:none}
+button{font:inherit;font-size:.85em;padding:.25em .9em;border-radius:10px;border:2px solid var(--ac);background:transparent;color:var(--ac);cursor:pointer}
+button:hover{background:var(--ac);color:var(--bg)}
+main{max-width:1000px;margin:0 auto;padding:2vh 4vw 8vh}
+h2{color:var(--ac);margin:3vh 0 1vh;scroll-margin-top:12vh}
+.intro{background:var(--card);border:2px solid var(--bd);border-radius:14px;padding:.6em 1em;margin-top:2vh}
+.card{background:var(--card);border:2px solid var(--bd);border-radius:16px;padding:.7em 1em;margin:0 0 2vh}
+.top{display:flex;align-items:center;gap:.6em}
+.top h3{margin:0;font-size:1.1em;flex:1}
+.no{background:var(--ac);color:var(--bg);border-radius:8px;padding:0 .5em;font-weight:700}
+.lv{font-size:.75em;border:2px solid;border-radius:999px;padding:0 .6em}
+.lv.easy{color:var(--ok)}.lv.medium{color:var(--warn)}.lv.practical{color:var(--ac)}
+p{margin:.4em 0}
+.lab{font-size:.8em;color:var(--mut);margin-top:.5em}
+pre{background:var(--code);color:var(--ct);border-radius:12px;padding:.6em .9em;margin:.2em 0 .5em;font:600 .95em/1.5 ui-monospace,Menlo,Consolas,monospace;overflow-x:auto}
+pre.o{color:var(--ot)}
+.warnnote{font-size:.8em;color:var(--warn);margin:-.2em 0 .5em}
+.sol{display:none}.card.show .sol{display:block;animation:in .3s ease both}
+@keyframes in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.card.show .sol{animation:none}}
+</style>
+</head>
+<body>
+<header>
+  <div class="row"><h1>Python Set – 37 Practical Assignments</h1><button id="all">Show all solutions</button><button id="th">Light / Dark</button></div>
+  <nav><a href="#g0">Create sets &amp; unique values</a> <a href="#g1">Add items</a> <a href="#g2">Remove items</a> <a href="#g3">Membership check</a> <a href="#g4">Union</a> <a href="#g5">Intersection</a> <a href="#g6">Difference</a> <a href="#g7">More set methods</a> <a href="#g8">Mini projects</a></nav>
+</header>
+<main>
+<div class="intro"><b>How to use:</b> Read the scenario and task, write your own code, and match the <b>sample output</b>. Click <b>Show solution code</b> only after you try. Sets are unordered, so the item order on your screen can differ for text values.</div>
+<section id="g0"><h2>Create sets &amp; unique values</h2>
+<article class="card"><div class="top"><span class="no">1</span><h3>Unique customers of the day</h3><span class="lv easy">Easy</span></div>
+<p><b>Scenario:</b> A shop records the customer ID on every visit. Some customers visit more than once.</p><p><b>Task:</b> Convert the list to a set. Print the unique customers, total visits and the unique customer count.</p>
+<div class="lab">Sample output</div><pre class="o">Unique customers: {104, 101, 102, 103}
+Total visits: 7
+Unique customer count: 4</pre>
+<button class="b">Show solution code</button><div class="sol"><pre class="c">customer_ids = [101, 102, 101, 103, 102, 104, 101]
+unique_customers = set(customer_ids)
+print(&quot;Unique customers:&quot;, unique_customers)
+print(&quot;Total visits:&quot;, len(customer_ids))
+print(&quot;Unique customer count:&quot;, len(unique_customers))</pre></div></article>
+<article class="card"><div class="top"><span class="no">2</span><h3>Different products sold</h3><span class="lv easy">Easy</span></div>
+<p><b>Scenario:</b> A store logs the product code of every item sold. The manager wants to know how many different products were sold.</p><p><b>Task:</b> Print the number of unique product codes and then the set.</p>
+<div class="lab">Sample output</div><pre class="o">Different products sold: 5
+{501, 502, 503, 504, 505}</pre>
+<button class="b">Show solution code</button><div class="sol"><pre class="c">sold_products = [501, 502, 501, 503, 502, 504, 505, 501]
+unique_products = set(sold_products)
+print(&quot;Different products sold:&quot;, len(unique_products))
+print(unique_products)</pre></div></article>
+<article class="card"><div class="top"><span class="no">3</span><h3>Cities we deliver to</h3><span class="lv easy">Easy</span></div>
+<p><b>Scenario:</b> A courier company keeps the city of every delivery in a list.</p><p><b>Task:</b> Find the unique cities and how many there are.</p>
+<div class="lab">Sample output</div><pre class="o">Cities served: 3
+{&#x27;Pune&#x27;, &#x27;Nashik&#x27;, &#x27;Mumbai&#x27;}</pre><div class="warnnote">Items inside a set of text may appear in a different order on your computer. That is normal.</div>
+<button class="b">Show solution code</button><div class="sol"><pre class="c">delivery_cities = [&quot;Pune&quot;, &quot;Mumbai&quot;, &quot;Pune&quot;, &quot;Nashik&quot;, &quot;Mumbai&quot;, &quot;Pune&quot;]
+unique_cities = set(delivery_cities)
+print(&quot;Cities served:&quot;, len(unique_cities))
+print(unique_cities)</pre></div></article>
+<article class="card"><div class="top"><span class="no">4</span><h3>Duplicate invoice entries</h3><span class="lv easy">Easy</span></div>
+<p><b>Scenario:</b> The accounts team entered some invoice numbers twice by mistake.</p><p><b>Task:</b> Find how many duplicate entries are in the list.</p>
+<div class="lab">Sample output</div><pre class="o">Total entries: 7
+Unique invoices: 5
+Duplicate entries: 2</pre>
+<button class="b">Show solution code</button><div class="sol"><pre class="c">invoices = [9001, 9002, 9003, 9002, 9004, 9001, 9005]
+unique_invoices = set(invoices)
+print(&quot;Total entries:&quot;, len(invoices))
+print(&quot;Unique invoices:&quot;, len(unique_invoices))
+print(&quot;Duplicate entries:&quot;, len(invoices) - len(unique_invoices))</pre></div></article>
+<article class="card"><div class="top"><span class="no">5</span><h3>Start the day with an empty login set</h3><span class="lv easy">Easy</span></div>
+<p><b>Scenario:</b> A portal wants to track unique logins today. At the start of the day nobody has logged in.</p><p><b>Task:</b> Create an empty set, print it, print its type and its length.</p>
+<div class="lab">Sample output</div><pre class="o">set()
+&lt;class &#x27;set&#x27;&gt;
+Logins so far: 0</pre>
+<button class="b">Show solution code</button><div class="sol"><pre class="c">todays_logins = set()          # not {} - that is a dictionary
+print(todays_logins)
+print(type(todays_logins))
+print(&quot;Logins so far:&quot;, len(todays_logins))</pre></div></article>
+</section>
+<section id="g1"><h2>Add items</h2>
+<article class="card"><div class="top"><span class="no">6</span><h3>New loyalty member</h3><span class="lv easy">Easy</span></div>
+<p><b>Scenario:</b> A shop keeps loyalty member IDs in a set. A new member joins, then the same member is entered again by mistake.</p><p><b>Task:</b> Add member 204, then add 202 again. Print the set after each step and the final count.</p>
+<div class="lab">Sample output</div><pre class="o">After new member: {201, 202, 203, 204}
+After adding existing member: {201, 202, 203, 204}
+Total members: 4</pre>
+<button class="b">Show solution code</button><div class="sol"><pre class="c">loyalty_members = {201, 202, 203}
+loyalty_members.add(204)
+print(&quot;After new member:&quot;, loyalty_members)
+loyalty_members.add(202)               # already present
+print(&quot;After adding existing member:&quot;, loyalty_members)
+print(&quot;Total members:&quot;, len(loyalty_members))</pre></div></article>
+<article class="card"><div class="top"><span class="no">7</span><h3>New arrivals in the catalog</h3><span class="lv easy">Easy</span></div>
+<p><b>Scenario:</b> An online store receives new product codes. One of them is already in the catalog.</p><p><b>Task:</b> Add all new arrivals to the catalog in one step. Print the catalog and its size.</p>
+<div class="lab">Sample output</div><pre class="o">{11, 12, 13, 14, 15}
+Total products: 5</pre>
+<button class="b">Show solution code</button><div class="sol"><pre class="c">catalog = {11, 12, 13}
+new_arrivals = [14, 15, 12]
+catalog.update(new_arrivals)
+print(catalog)
+print(&quot;Total products:&quot;, len(catalog))</pre></div></article>
+<article class="card"><div class="top"><span class="no">8</span><h3>Afternoon visitors</h3><span class="lv easy">Easy</span></div>
+<p><b>Scenario:</b> A website stores morning visitor IDs in a set. Afternoon visitors must be added to the same set.</p><p><b>Task:</b> Add the afternoon visitors using update(). Print unique visitors and their count.</p>
+<div class="lab">Sample output</div><pre class="o">Unique visitors today: {1, 2, 3, 4, 5, 6, 7}
+Count: 7</pre>
+<button class="b">Show solution code</button><div class="sol"><pre class="c">visitors = {1, 2, 3, 4}
+afternoon = [3, 4, 5, 6, 7]
+visitors.update(afternoon)
+print(&quot;Unique visitors today:&quot;, visitors)
+print(&quot;Count:&quot;, len(visitors))</pre></div></article>
+<article class="card"><div class="top"><span class="no">9</span><h3>Shopping cart</h3><span class="lv easy">Easy</span></div>
+<p><b>Scenario:</b> A customer adds the same item twice by clicking the button two times. The cart must keep each item only once.</p><p><b>Task:</b> Create an empty cart, add Keyboard, Mouse and Keyboard again. Print the number of items and the cart.</p>
+<div class="lab">Sample output</div><pre class="o">Items in cart: 2
+{&#x27;Mouse&#x27;, &#x27;Keyboard&#x27;}</pre><div class="warnnote">Items inside a set of text may appear in a different order on your computer. That is normal.</div>
+<button class="b">Show solution code</button><div class="sol"><pre class="c">cart = set()
+cart.add(&quot;Keyboard&quot;)
+cart.add(&quot;Mouse&quot;)
+cart.add(&quot;Keyboard&quot;)
+print(&quot;Items in cart:&quot;, len(cart))
+print(cart)</pre></div></article>
+<article class="card"><div class="top"><span class="no">10</span><h3>Merge warehouse stock codes</h3><span class="lv medium">Medium</span></div>
+<p><b>Scenario:</b> A warehouse receives stock codes from a list and from a tuple. Some codes are already present.</p><p><b>Task:</b> Add both the list and the tuple to the stock set in one update() call.</p>
+<div class="lab">Sample output</div><pre class="o">{704, 705, 701, 702, 703}
+Total codes: 5</pre>
+<button class="b">Show solution code</button><div class="sol"><pre class="c">stock = {701, 702}
+stock.update([703, 704], (705, 701))
+print(stock)
+print(&quot;Total codes:&quot;, len(stock))</pre></div></article>
+</section>
+<section id="g2"><h2>Remove items</h2>
+<article class="card"><div class="top"><span class="no">11</span><h3>Discontinued product</h3><span class="lv easy">Easy</span></div>
+<p><b>Scenario:</b> A company stops selling product 303.</p><p><b>Task:</b> Remove 303 from the active products set. Print the set and the count.</p>
+<div class="lab">Sample output</div><pre class="o">Active products: {304, 301, 302}
+Count: 3</pre>
+<button class="b">Show solution code</button><div class="sol"><pre class="c">active_products = {301, 302, 303, 304}
+active_products.remove(303)
+print(&quot;Active products:&quot;, active_products)
+print(&quot;Count:&quot;, len(active_products))</pre></div></article>
+<article class="card"><div class="top"><span class="no">12</span><h3>Unsubscribe safely</h3><span class="lv easy">Easy</span></div>
+<p><b>Scenario:</b> A user clicks Unsubscribe twice. The second time the ID is no longer in the set and the program must not crash.</p><p><b>Task:</b> Remove subscriber 20 and then try to remove 99 without getting an error.</p>
+<div class="lab">Sample output</div><pre class="o">{10, 30}</pre>
+<button class="b">Show solution code</button><div class="sol"><pre class="c">subscribers = {10, 20, 30}
+subscribers.discard(20)
+subscribers.discard(99)     # not present - no error with discard()
+print(subscribers)</pre></div></article>
+<article class="card"><div class="top"><span class="no">13</span><h3>Pick a support ticket</h3><span class="lv medium">Medium</span></div>
+<p><b>Scenario:</b> A support team keeps pending ticket numbers in a set. An agent picks any one ticket to work on.</p><p><b>Task:</b> Pop one ticket, print which one was picked and the remaining tickets.</p>
+<div class="lab">Sample output</div><pre class="o">Picked ticket: 1
+Remaining: {2, 3, 4, 5}</pre>
+<button class="b">Show solution code</button><div class="sol"><pre class="c">pending_tickets = {1, 2, 3, 4, 5}
+picked = pending_tickets.pop()      # removes any one item
+print(&quot;Picked ticket:&quot;, picked)
+print(&quot;Remaining:&quot;, pending_tickets)</pre></div></article>
+<article class="card"><div class="top"><span class="no">14</span><h3>End-of-day reset</h3><span class="lv easy">Easy</span></div>
+<p><b>Scenario:</b> A billing system stores today&#x27;s order IDs in a set and must start fresh every morning.</p><p><b>Task:</b> Print the order count, clear the set and print it again.</p>
+<div class="lab">Sample output</div><pre class="o">Orders today: 3
+After reset: set()</pre>
+<button class="b">Show solution code</button><div class="sol"><pre class="c">todays_orders = {5001, 5002, 5003}
+print(&quot;Orders today:&quot;, len(todays_orders))
+todays_orders.clear()
+print(&quot;After reset:&quot;, todays_orders)</pre></div></article>
+</section>
+<section id="g3"><h2>Membership check</h2>
+<article class="card"><div class="top"><span class="no">15</span><h3>Is the customer premium?</h3><span class="lv easy">Easy</span></div>
+<p><b>Scenario:</b> Premium customers get a discount. Their IDs are stored in a set.</p><p><b>Task:</b> Check whether customers 1005 and 1002 are premium. Print True or False.</p>
+<div class="lab">Sample output</div><pre class="o">True
+False</pre>
+<button class="b">Show solution code</button><div class="sol"><pre class="c">premium_customers = {1001, 1005, 1009}
+print(1005 in premium_customers)
+print(1002 in premium_customers)</pre></div></article>
+<article class="card"><div class="top"><span class="no">16</span><h3>Out of stock?</h3><span class="lv easy">Easy</span></div>
+<p><b>Scenario:</b> A store keeps in-stock items in a set.</p><p><b>Task:</b> Print True if Monitor is NOT in stock, and also check Laptop.</p>
+<div class="lab">Sample output</div><pre class="o">True
+False</pre>
+<button class="b">Show solution code</button><div class="sol"><pre class="c">in_stock = {&quot;Laptop&quot;, &quot;Mouse&quot;, &quot;Keyboard&quot;}
+print(&quot;Monitor&quot; not in in_stock)
+print(&quot;Laptop&quot; not in in_stock)</pre></div></article>
+<article class="card"><div class="top"><span class="no">17</span><h3>Coupon validation</h3><span class="lv easy">Easy</span></div>
+<p><b>Scenario:</b> A checkout page accepts only coupon codes from a valid set.</p><p><b>Task:</b> Check FESTIVE20 and DIWALI99. Print True or False for each.</p>
+<div class="lab">Sample output</div><pre class="o">FESTIVE20 valid: True
+DIWALI99 valid: False</pre>
+<button class="b">Show solution code</button><div class="sol"><pre class="c">valid_coupons = {&quot;SAVE10&quot;, &quot;FESTIVE20&quot;, &quot;NEW50&quot;}
+print(&quot;FESTIVE20 valid:&quot;, &quot;FESTIVE20&quot; in valid_coupons)
+print(&quot;DIWALI99 valid:&quot;, &quot;DIWALI99&quot; in valid_coupons)</pre></div></article>
+<article class="card"><div class="top"><span class="no">18</span><h3>Attendance check</h3><span class="lv medium">Medium</span></div>
+<p><b>Scenario:</b> HR keeps IDs of present employees in a set.</p><p><b>Task:</b> Print whether employee 12 is present, whether 13 is present and whether 13 is absent.</p>
+<div class="lab">Sample output</div><pre class="o">Employee 12 present: True
+Employee 13 present: False
+Employee 13 absent: True</pre>
+<button class="b">Show solution code</button><div class="sol"><pre class="c">present = {11, 12, 14, 15}
+print(&quot;Employee 12 present:&quot;, 12 in present)
+print(&quot;Employee 13 present:&quot;, 13 in present)
+print(&quot;Employee 13 absent:&quot;, 13 not in present)</pre></div></article>
+</section>
+<section id="g4"><h2>Union (combine)</h2>
+<article class="card"><div class="top"><span class="no">19</span><h3>Online and in-store buyers</h3><span class="lv easy">Easy</span></div>
+<p><b>Scenario:</b> A company has a set of online buyers and a set of in-store buyers.</p><p><b>Task:</b> Find all unique buyers using | and print their count.</p>
+<div class="lab">Sample output</div><pre class="o">All buyers: {1, 2, 3, 4, 5, 6}
+Total unique buyers: 6</pre>
+<button class="b">Show solution code</button><div class="sol"><pre class="c">online_buyers = {1, 2, 3, 4}
+store_buyers = {3, 4, 5, 6}
+all_buyers = online_buyers | store_buyers
+print(&quot;All buyers:&quot;, all_buyers)
+print(&quot;Total unique buyers:&quot;, len(all_buyers))</pre></div></article>
+<article class="card"><div class="top"><span class="no">20</span><h3>Staff of two branches</h3><span class="lv easy">Easy</span></div>
+<p><b>Scenario:</b> Pune and Mumbai branches have staff ID sets. Some staff work in both.</p><p><b>Task:</b> Print all staff of the company using union().</p>
+<div class="lab">Sample output</div><pre class="o">{101, 102, 103, 104, 105}</pre>
+<button class="b">Show solution code</button><div class="sol"><pre class="c">pune_staff = {101, 102, 103}
+mumbai_staff = {103, 104, 105}
+print(pune_staff.union(mumbai_staff))</pre></div></article>
+<article class="card"><div class="top"><span class="no">21</span><h3>Marketing reach</h3><span class="lv medium">Medium</span></div>
+<p><b>Scenario:</b> A campaign is sent by email and by SMS. Some customers are on both lists.</p><p><b>Task:</b> Find how many unique customers were reached and compare with the simple total.</p>
+<div class="lab">Sample output</div><pre class="o">Unique customers reached: 7
+Simple total (with repeats): 9</pre>
+<button class="b">Show solution code</button><div class="sol"><pre class="c">email_list = {1, 2, 3, 4, 5}
+sms_list = {4, 5, 6, 7}
+reach = email_list | sms_list
+print(&quot;Unique customers reached:&quot;, len(reach))
+print(&quot;Simple total (with repeats):&quot;, len(email_list) + len(sms_list))</pre></div></article>
+<article class="card"><div class="top"><span class="no">22</span><h3>Combined supplier catalog</h3><span class="lv medium">Medium</span></div>
+<p><b>Scenario:</b> Two suppliers sell some common products.</p><p><b>Task:</b> Create the full catalog we can offer and print how many products it has.</p>
+<div class="lab">Sample output</div><pre class="o">{1001, 1002, 1003, 1004, 1005}
+Products we can offer: 5</pre>
+<button class="b">Show solution code</button><div class="sol"><pre class="c">supplier_a = {1001, 1002, 1003, 1004}
+supplier_b = {1003, 1004, 1005}
+full_catalog = supplier_a | supplier_b
+print(full_catalog)
+print(&quot;Products we can offer:&quot;, len(full_catalog))</pre></div></article>
+</section>
+<section id="g5"><h2>Intersection (common)</h2>
+<article class="card"><div class="top"><span class="no">23</span><h3>Laptop and mouse buyers</h3><span class="lv easy">Easy</span></div>
+<p><b>Scenario:</b> A marketing team wants customers who bought both a laptop and a mouse.</p><p><b>Task:</b> Find the common customers using &amp; and print how many there are.</p>
+<div class="lab">Sample output</div><pre class="o">Bought both: {3, 4, 5}
+Count: 3</pre>
+<button class="b">Show solution code</button><div class="sol"><pre class="c">laptop_buyers = {1, 2, 3, 4, 5}
+mouse_buyers = {3, 4, 5, 6}
+both = laptop_buyers &amp; mouse_buyers
+print(&quot;Bought both:&quot;, both)
+print(&quot;Count:&quot;, len(both))</pre></div></article>
+<article class="card"><div class="top"><span class="no">24</span><h3>Employees trained in both skills</h3><span class="lv easy">Easy</span></div>
+<p><b>Scenario:</b> A manager needs employees trained in both Python and SQL.</p><p><b>Task:</b> Use intersection() and print the result.</p>
+<div class="lab">Sample output</div><pre class="o">{104, 103}</pre>
+<button class="b">Show solution code</button><div class="sol"><pre class="c">python_trained = {101, 102, 103, 104}
+sql_trained = {103, 104, 105}
+print(python_trained.intersection(sql_trained))</pre></div></article>
+<article class="card"><div class="top"><span class="no">25</span><h3>Products sold in both stores</h3><span class="lv medium">Medium</span></div>
+<p><b>Scenario:</b> Two stores have product code sets. Head office wants the common products.</p><p><b>Task:</b> Print the common products and how many there are.</p>
+<div class="lab">Sample output</div><pre class="o">Common products: {2004, 2005}
+Count: 2</pre>
+<button class="b">Show solution code</button><div class="sol"><pre class="c">store_a = {2001, 2002, 2003, 2004, 2005}
+store_b = {2004, 2005, 2006}
+common = store_a &amp; store_b
+print(&quot;Common products:&quot;, common)
+print(&quot;Count:&quot;, len(common))</pre></div></article>
+<article class="card"><div class="top"><span class="no">26</span><h3>Repeat customers</h3><span class="lv medium">Medium</span></div>
+<p><b>Scenario:</b> A shop has customer ID sets for January and February.</p><p><b>Task:</b> Find customers who came in both months.</p>
+<div class="lab">Sample output</div><pre class="o">Repeat customers: {4, 5, 6}
+Repeat count: 3</pre>
+<button class="b">Show solution code</button><div class="sol"><pre class="c">january = {1, 2, 3, 4, 5, 6}
+february = {4, 5, 6, 7, 8}
+repeat_customers = january &amp; february
+print(&quot;Repeat customers:&quot;, repeat_customers)
+print(&quot;Repeat count:&quot;, len(repeat_customers))</pre></div></article>
+</section>
+<section id="g6"><h2>Difference (only in one)</h2>
+<article class="card"><div class="top"><span class="no">27</span><h3>New customers this month</h3><span class="lv easy">Easy</span></div>
+<p><b>Scenario:</b> The owner wants to know which customers are new in February.</p><p><b>Task:</b> New customers = February customers who were not in January.</p>
+<div class="lab">Sample output</div><pre class="o">New customers: {6, 7}</pre>
+<button class="b">Show solution code</button><div class="sol"><pre class="c">january = {1, 2, 3, 4, 5}
+february = {3, 4, 5, 6, 7}
+new_customers = february - january
+print(&quot;New customers:&quot;, new_customers)</pre></div></article>
+<article class="card"><div class="top"><span class="no">28</span><h3>Lost customers</h3><span class="lv easy">Easy</span></div>
+<p><b>Scenario:</b> The owner wants to know who visited in January but did not come back in February.</p><p><b>Task:</b> Print the lost customers and their count.</p>
+<div class="lab">Sample output</div><pre class="o">Lost customers: {1, 2}
+Count: 2</pre>
+<button class="b">Show solution code</button><div class="sol"><pre class="c">january = {1, 2, 3, 4, 5}
+february = {3, 4, 5, 6, 7}
+lost = january - february
+print(&quot;Lost customers:&quot;, lost)
+print(&quot;Count:&quot;, len(lost))</pre></div></article>
+<article class="card"><div class="top"><span class="no">29</span><h3>Unsold products</h3><span class="lv medium">Medium</span></div>
+<p><b>Scenario:</b> A warehouse has all stock codes and a set of codes sold this week.</p><p><b>Task:</b> Find the products that are in stock but were not sold.</p>
+<div class="lab">Sample output</div><pre class="o">Unsold products: {305, 301, 303}
+Unsold count: 3</pre>
+<button class="b">Show solution code</button><div class="sol"><pre class="c">stock = {301, 302, 303, 304, 305}
+sold = {302, 304}
+unsold = stock.difference(sold)
+print(&quot;Unsold products:&quot;, unsold)
+print(&quot;Unsold count:&quot;, len(unsold))</pre></div></article>
+<article class="card"><div class="top"><span class="no">30</span><h3>Absent employees</h3><span class="lv medium">Medium</span></div>
+<p><b>Scenario:</b> HR has the set of all employee IDs and the set of present IDs for today.</p><p><b>Task:</b> Find who is absent today and print the count.</p>
+<div class="lab">Sample output</div><pre class="o">Absent: {3, 5}
+Absent count: 2</pre>
+<button class="b">Show solution code</button><div class="sol"><pre class="c">all_employees = {1, 2, 3, 4, 5, 6}
+present_today = {1, 2, 4, 6}
+absent = all_employees - present_today
+print(&quot;Absent:&quot;, absent)
+print(&quot;Absent count:&quot;, len(absent))</pre></div></article>
+</section>
+<section id="g7"><h2>More set methods</h2>
+<article class="card"><div class="top"><span class="no">31</span><h3>Stock mismatch between warehouses</h3><span class="lv medium">Medium</span></div>
+<p><b>Scenario:</b> Two warehouses should hold the same product codes. The auditor wants items that are in only one of them.</p><p><b>Task:</b> Use symmetric difference (^) to find the mismatched products.</p>
+<div class="lab">Sample output</div><pre class="o">Mismatch: {1, 2, 3, 6, 7}</pre>
+<button class="b">Show solution code</button><div class="sol"><pre class="c">warehouse_a = {1, 2, 3, 4, 5}
+warehouse_b = {4, 5, 6, 7}
+mismatch = warehouse_a ^ warehouse_b
+print(&quot;Mismatch:&quot;, mismatch)</pre></div></article>
+<article class="card"><div class="top"><span class="no">32</span><h3>Are all gold members customers?</h3><span class="lv medium">Medium</span></div>
+<p><b>Scenario:</b> The database must have every gold member inside the main customer set.</p><p><b>Task:</b> Check with issubset(). Print True or False.</p>
+<div class="lab">Sample output</div><pre class="o">True
+False</pre>
+<button class="b">Show solution code</button><div class="sol"><pre class="c">all_customers = {1, 2, 3, 4, 5, 6, 7, 8}
+gold_members = {2, 5, 7}
+print(gold_members.issubset(all_customers))
+print({2, 9}.issubset(all_customers))</pre></div></article>
+<article class="card"><div class="top"><span class="no">33</span><h3>Can we fulfill this order?</h3><span class="lv medium">Medium</span></div>
+<p><b>Scenario:</b> A customer order contains some product codes. The warehouse should have all of them.</p><p><b>Task:</b> Use issuperset(). Check one order that can be fulfilled and one that cannot.</p>
+<div class="lab">Sample output</div><pre class="o">Order 1 possible: True
+Order 2 possible: False</pre>
+<button class="b">Show solution code</button><div class="sol"><pre class="c">inventory = {1, 2, 3, 4, 5, 6}
+order_1 = {2, 4}
+order_2 = {2, 9}
+print(&quot;Order 1 possible:&quot;, inventory.issuperset(order_1))
+print(&quot;Order 2 possible:&quot;, inventory.issuperset(order_2))</pre></div></article>
+<article class="card"><div class="top"><span class="no">34</span><h3>Campaign audience overlap</h3><span class="lv medium">Medium</span></div>
+<p><b>Scenario:</b> Two campaigns should not target the same customers.</p><p><b>Task:</b> Use isdisjoint() to check each pair of audiences.</p>
+<div class="lab">Sample output</div><pre class="o">A and B have no common customer: True
+A and C have no common customer: False</pre>
+<button class="b">Show solution code</button><div class="sol"><pre class="c">campaign_a = {1, 2, 3}
+campaign_b = {4, 5, 6}
+campaign_c = {3, 7}
+print(&quot;A and B have no common customer:&quot;, campaign_a.isdisjoint(campaign_b))
+print(&quot;A and C have no common customer:&quot;, campaign_a.isdisjoint(campaign_c))</pre></div></article>
+<article class="card"><div class="top"><span class="no">35</span><h3>Backup of the customer list</h3><span class="lv medium">Medium</span></div>
+<p><b>Scenario:</b> Before a bulk update, the team keeps a separate backup of the customer set.</p><p><b>Task:</b> Make a backup with copy(), add a new customer to the original and print both.</p>
+<div class="lab">Sample output</div><pre class="o">Original: {1, 2, 3, 4}
+Backup: {1, 2, 3}</pre>
+<button class="b">Show solution code</button><div class="sol"><pre class="c">customers = {1, 2, 3}
+backup = customers.copy()
+customers.add(4)
+print(&quot;Original:&quot;, customers)
+print(&quot;Backup:&quot;, backup)</pre></div></article>
+</section>
+<section id="g8"><h2>Mini projects</h2>
+<article class="card"><div class="top"><span class="no">36</span><h3>Quarterly customer analysis</h3><span class="lv practical">Practical</span></div>
+<p><b>Scenario:</b> A shop has customer ID sets for January, February and March.</p><p><b>Task:</b> Print: customers who came in all three months, total unique customers in the quarter, and new customers in March.</p>
+<div class="lab">Sample output</div><pre class="o">Came in all 3 months: {4, 5}
+Total unique customers: 9
+New in March: {8, 9}</pre>
+<button class="b">Show solution code</button><div class="sol"><pre class="c">jan = {1, 2, 3, 4, 5}
+feb = {3, 4, 5, 6, 7}
+mar = {4, 5, 7, 8, 9}
+print(&quot;Came in all 3 months:&quot;, jan &amp; feb &amp; mar)
+print(&quot;Total unique customers:&quot;, len(jan | feb | mar))
+print(&quot;New in March:&quot;, mar - (jan | feb))</pre></div></article>
+<article class="card"><div class="top"><span class="no">37</span><h3>Clean order list</h3><span class="lv practical">Practical</span></div>
+<p><b>Scenario:</b> An orders list has duplicates. One order is cancelled and one late order arrives.</p><p><b>Task:</b> Remove duplicates, add late order 4010, remove cancelled order 4002, print the final set, the final count and check whether order 4003 exists.</p>
+<div class="lab">Sample output</div><pre class="o">Final orders: {4001, 4003, 4004, 4010}
+Final count: 4
+Order 4003 exists: True</pre>
+<button class="b">Show solution code</button><div class="sol"><pre class="c">orders = [4001, 4002, 4003, 4002, 4001, 4004]
+order_set = set(orders)
+order_set.add(4010)          # late order
+order_set.discard(4002)      # cancelled order
+print(&quot;Final orders:&quot;, order_set)
+print(&quot;Final count:&quot;, len(order_set))
+print(&quot;Order 4003 exists:&quot;, 4003 in order_set)</pre></div></article>
+</section>
+</main>
+<script>
+document.querySelector('main').addEventListener('click',function(e){var b=e.target.closest('.b');if(!b)return;var c=b.closest('.card');c.classList.toggle('show');b.textContent=c.classList.contains('show')?'Hide solution code':'Show solution code'});
+var all=false;document.getElementById('all').onclick=function(){all=!all;[].forEach.call(document.querySelectorAll('.card'),function(c){c.classList.toggle('show',all);c.querySelector('.b').textContent=all?'Hide solution code':'Show solution code'});this.textContent=all?'Hide all solutions':'Show all solutions'};
+document.getElementById('th').onclick=function(){var r=document.documentElement,d=getComputedStyle(r).getPropertyValue('--bg').trim()==='#0b1220';r.setAttribute('data-theme',d?'light':'dark')};
+</script>
+</body>
+</html>
